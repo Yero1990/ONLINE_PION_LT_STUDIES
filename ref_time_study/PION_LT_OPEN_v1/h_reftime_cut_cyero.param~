@@ -1,0 +1,12 @@
+
+
+
+
+
+; C.Y. Sept, 11 2021: Open Ref. Time Windows
+
+hdc_tdcrefcut   =-10000.
+hhodo_tdcrefcut =-1500.
+hhodo_adcrefcut =-1700.
+hcer_adcrefcut  =-2000.
+hcal_adcrefcut  =-2000.

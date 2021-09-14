@@ -1,0 +1,92 @@
+Studies of Reference /Times Detector Time WIndows
+
+Description: I have selected one run at each kinematic setting
+to check the stability of the reference times/detector time windows
+locations
+
+Summary of relevant PION LT runs
+
+------------------------------------------------------
+Run: 11799  https://logbooks.jlab.org/entry/3901943                  
+Kinematics: HMS/SHMS P = -5/27 GeV/c. 
+            SHMS Angle = 7.5 deg, HMS Angle = 12.5 deg
+Trigger:  ps1=9 (shms 3/4), ps3=4 (hms 3/4)
+Description: defocused quad tune run (Q2 + 20% in both spectrometer) 
+run can be used for hodo calibration just to check if it will be useful
+for later runs
+
+11796 - 11823
+gpbeam = 9.203
+gtargmass_amu = 1.00794
+htheta_lab = -12.5
+ptheta_lab = 7.5
+hpcentral = 5.89
+ppcentral = 5.27
+hpartmass = 0.000511
+ppartmass = 0.000511
+helicity_freq = 120.0007547169
+HMS_RF_Offset = 0
+SHMS_RF_Offset = -1.990
+eHadCoinTime_Offset = 44.089
+
+
+Run 11829   Heep_Coin  Heep_Kin-Setting A     (15:11 - 15:14)
+11829 - 11844
+gpbeam = 9.203
+gtargmass_amu = 1.00794
+htheta_lab = -23.75
+ptheta_lab = 23.79
+hpcentral = 5.015
+ppcentral = 5.015
+hpartmass =  0.000511
+ppartmass =  0.938272
+helicity_freq = 120.0007547169
+HMS_RF_Offset = 0
+SHMS_RF_Offset = -1.990
+eHadCoinTime_Offset = 75.9
+
+
+Run 11847   Heep_Coin  Heep_Kin-Setting B
+11846 - 11879
+gpbeam = 9.203
+gtargmass_amu = 1.00794
+htheta_lab = -31.645
+ptheta_lab = 18.125
+hpcentral = 3.738
+ppcentral = 6.265
+hpartmass =  0.000511
+ppartmass =  0.938272
+helicity_freq = 120.0007547169
+HMS_RF_Offset = 0
+SHMS_RF_Offset = -1.990
+eHadCoinTime_Offset = 75.9
+
+Run 11883   Prod_Coin (LH2 and LD2 at some point, but just choose LH2)  Prod_Kin-Setting 1 (LH2) or 2 (LD2)
+11883 - 11944
+gpbeam = 9.203
+gtargmass_amu = 1.00794
+htheta_lab = -12.40
+ptheta_lab = 10.26
+hpcentral = 3.738
+ppcentral = 5.422
+hpartmass =  0.000511
+ppartmass =  0.139570
+helicity_freq = 120.0007547169
+HMS_RF_Offset = 0
+SHMS_RF_Offset = 0
+eHadCoinTime_Offset = 75.9
+
+Run 11947   Prod_Coin (LD2)  Prod_Kin-Setting 3
+11947 - 99999
+gpbeam = 9.203
+gtargmass_amu = 1.00794
+htheta_lab = -12.40
+ptheta_lab = 8.265
+hpcentral = 3.738
+ppcentral = 5.422
+hpartmass =  0.000511
+ppartmass =  0.139570
+helicity_freq = 120.0007547169
+HMS_RF_Offset = 0
+SHMS_RF_Offset = 0
+eHadCoinTime_Offset = 75.9
