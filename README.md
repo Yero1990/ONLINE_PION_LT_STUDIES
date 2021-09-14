@@ -10,3 +10,7 @@ This repository contains the relevant scripts used for setting up the initial pa
 `./ref_time_study/`: This directory contains the relevant plots and ROOTfiles summarizing the reference times window cuts determined during the online analysis.
 
 `./time_win_study/`: This directory contains the relevant plots and ROOTfiles summarizing the detector time window cuts determined during the online analysis.
+
+`./calibration`: This directory contains the relevant most-up-to-date detector calibration codes being used in the online pion-lt analysis
+
+
