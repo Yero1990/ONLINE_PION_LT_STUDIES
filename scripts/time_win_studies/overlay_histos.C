@@ -1,5 +1,13 @@
-void make_histos(TString hist_name=""){
+void overlay_histos(TString hist_name=""){
 
+  /*
+    Description: This script takes as input a histogram object name,
+    and reads that histogram from pre-defined ROOTfiles the user chooses.
+    These histograms from the different files are then overlayed for a
+    direct comparison. The histograms MUST have the same dimensions (bins, range)
+
+   */
+  
   gROOT->SetBatch(kTRUE);
   gROOT->ForceStyle();
   gStyle->SetOptStat(0);
@@ -243,12 +251,5 @@ void make_plot(){
   make_histos("pSh_pmt160_CUT");
 
   
-  /*
-  make_histos();
-  make_histos();
-  make_histos();
-  make_histos();
-  make_histos();
-  */  
   
 }
