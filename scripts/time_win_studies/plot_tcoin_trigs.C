@@ -14,18 +14,38 @@ void plot_tcoin_trigs(){
   //black(11799), blue(11829), green(11847), magenta (11883), red (11947)
 
 
-  TString s1 = "../../time_win_study/ROOTfiles/ref_times_set/Pion_coin_replay_timeWin_check_cyero_11799_-1.root";
-
-  TFile *f1 = new TFile(s1.Data(), "READ");
-  TTree *T1 = (TTree*)f1->Get("T");
+  TString s1 = "./ROOTfiles/Pion_coin_replay_tcoin_cyero_11799_100000.root";
+  TString s2 = "./ROOTfiles/Pion_coin_replay_tcoin_cyero_11829_100000.root";
+  TString s3 = "./ROOTfiles/Pion_coin_replay_tcoin_cyero_11847_100000.root";
+  TString s4 = "./ROOTfiles/Pion_coin_replay_tcoin_cyero_11883_100000.root";
+  TString s5 = "./ROOTfiles/Pion_coin_replay_tcoin_cyero_11947_100000.root";
 
   TCanvas *c1 = new TCanvas();
-  
   c1->cd();
   c1->SetLogy();
 
-  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw(100, 0, 12000)", );
+
+  TFile *f1 = new TFile(s1.Data(), "READ");
+  TTree *T1 = (TTree*)f1->Get("T");
   
+
+  TH1F *h1 = new TH1F("h1", "", 100,0,12000 );
+  TH1F *h2 = new TH1F("h2", "", 100,0,12000 );
+  TH1F *h3 = new TH1F("h3", "", 100,0,12000 );
+  TH1F *h4 = new TH1F("h4", "", 100,0,12000 );
+  TH1F *h5 = new TH1F("h5", "", 100,0,12000 );
+
+
+  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw>>h1", "T.coin.pTRIG1_ROC2_tdcMultiplicity==1");
+  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw>>h1", "T.coin.pTRIG1_ROC2_tdcMultiplicity==1");
+  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw>>h1", "T.coin.pTRIG1_ROC2_tdcMultiplicity==1");
+  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw>>h1", "T.coin.pTRIG1_ROC2_tdcMultiplicity==1");
+  T1->Draw("T.coin.pTRIG1_ROC2_tdcTimeRaw>>h1", "T.coin.pTRIG1_ROC2_tdcMultiplicity==1");
+
+  
+  h1->SetLineColor(kBlack);
+
+
   
   /*
   TString s2 = "1829.root";
