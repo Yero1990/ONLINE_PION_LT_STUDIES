@@ -38,8 +38,8 @@ static const UInt_t nBarsMax   = 16;
 static const UInt_t nTwFitPars = 2;
 
 static const Double_t tdcThresh      = 120.0;  // 30 mV in units of FADC channels
-static const Double_t twFitRangeLow  = 20.0;
-static const Double_t twFitRangeHigh = 600.0;
+static const Double_t twFitRangeLow  = 5.0;
+static const Double_t twFitRangeHigh = 400.0;
 static const Double_t c0twParInit    = 1.0;
 static const Double_t c1twParInit    = 1.0;
 
@@ -530,7 +530,7 @@ using namespace std;
   histOutFile->Close();
  
   //Write to a param file
-  //WriteFitParam(run);
+  WriteFitParam(run);
   //Write parrameters with errors out to seperate file
   //WriteFitParamErr(run);
   

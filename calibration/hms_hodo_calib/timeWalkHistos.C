@@ -64,10 +64,10 @@ static const Double_t refAdcPulseAmpCutLow   = 40.0;   // Units of mV
 static const Double_t refAdcPulseAmpCutHigh  = 70.0;   // Units of mV
 static const Double_t refAdcPulseTimeCutLow  = 320.0;  // Units of ns
 static const Double_t refAdcPulseTimeCutHigh = 360.0;  // Units of ns
-static const Double_t adcTdcTimeDiffCutLow   = -100.0; // Units of ns
-static const Double_t adcTdcTimeDiffCutHigh  = 100.0;  // Units of ns
-static const Double_t calEtotNormCutVal      = 0.6;  // Units of GeV
-static const Double_t cerNpeSumCutVal        = 1.5;    // Units of NPE
+static const Double_t adcTdcTimeDiffCutLow   = 10.;    // -100 | Units of ns
+static const Double_t adcTdcTimeDiffCutHigh  = 30.;  // 100 | Units of ns
+static const Double_t calEtotNormCutVal      = 0.7;  // Units of GeV
+static const Double_t cerNpeSumCutVal        = 0.5;    // Units of NPE
 // static const Double_t adcTdcTimeDiffCutLow   = -6000.0;  // Units of ns
 // static const Double_t adcTdcTimeDiffCutHigh  = 1000.0;  // Units of ns
 
@@ -284,10 +284,10 @@ void timeWalkHistos(TString inputname,Int_t runNum, string SPEC_flg) {    //SPEC
   } // Plane loop
 
   // Loop over the events and fill histograms
-  //nentries = rawDataTree->GetEntries();
+  nentries = rawDataTree->GetEntries();
   //nentries = 1200000;
 
-   nentries = 100000;
+   
   cout << "\n******************************************"    << endl;
   cout << nentries << " Events Will Be Processed"           << endl;
   cout << "******************************************\n"    << endl;
@@ -426,7 +426,7 @@ void timeWalkHistos(TString inputname,Int_t runNum, string SPEC_flg) {    //SPEC
       } // Side loop
     } // Plane loop
 
-    if (ievent % 10000 == 0 && ievent != 0)
+    if (ievent % 1000 == 0 && ievent != 0)
       cout << ievent << " Events Have Been Processed..." << endl;
 
   } // rawDataTree event loop
