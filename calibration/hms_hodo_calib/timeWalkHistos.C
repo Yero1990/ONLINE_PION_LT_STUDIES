@@ -284,10 +284,10 @@ void timeWalkHistos(TString inputname,Int_t runNum, string SPEC_flg) {    //SPEC
   } // Plane loop
 
   // Loop over the events and fill histograms
-  nentries = rawDataTree->GetEntries();
+  //nentries = rawDataTree->GetEntries();
   //nentries = 1200000;
 
-  // nentries = 100000;
+   nentries = 100000;
   cout << "\n******************************************"    << endl;
   cout << nentries << " Events Will Be Processed"           << endl;
   cout << "******************************************\n"    << endl;
@@ -426,7 +426,7 @@ void timeWalkHistos(TString inputname,Int_t runNum, string SPEC_flg) {    //SPEC
       } // Side loop
     } // Plane loop
 
-    if (ievent % 100000 == 0 && ievent != 0)
+    if (ievent % 10000 == 0 && ievent != 0)
       cout << ievent << " Events Have Been Processed..." << endl;
 
   } // rawDataTree event loop
@@ -441,5 +441,5 @@ void timeWalkHistos(TString inputname,Int_t runNum, string SPEC_flg) {    //SPEC
   printf ("The Analysis Event Rate Was %.3f kHz \n", (ievent + 1) / (((float) t) / CLOCKS_PER_SEC*1000.));
   outFile->Write();
   outFile->Close();
-  return 0;
+  return ;
 } // time_walk_calib()

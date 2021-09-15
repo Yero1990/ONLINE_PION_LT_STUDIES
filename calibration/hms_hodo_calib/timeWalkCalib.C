@@ -290,7 +290,7 @@ void writePlots()
 void WriteFitParam(int runNUM)
 {
 
-  TString outPar_Name = Form("../../PARAM/HMS/HODO/hhodo_TWcalib_%d.param", runNUM);
+  TString outPar_Name = Form("./hhodo_TWcalib_%d.param", runNUM);
   outParam.open(outPar_Name);
   outParam << Form(";HMS Hodoscopes Output Parameter File: Run %d", runNUM) << endl;
   outParam << " " << endl;
@@ -460,7 +460,7 @@ void timeWalkCalib(int run) {
 using namespace std;
 
 //prevent root from displaying graphs while executing
- gROOT->SetBatch(1);
+// gROOT->SetBatch(1);
 
   // ROOT settings
   gStyle->SetTitleFontSize(fontSize);
@@ -530,8 +530,8 @@ using namespace std;
   histOutFile->Close();
  
   //Write to a param file
-  WriteFitParam(run);
+  //WriteFitParam(run);
   //Write parrameters with errors out to seperate file
-  WriteFitParamErr(run);
+  //WriteFitParamErr(run);
   
 }
