@@ -64,10 +64,10 @@ static const Double_t refAdcPulseAmpCutLow   = 40.0;   // Units of mV
 static const Double_t refAdcPulseAmpCutHigh  = 70.0;   // Units of mV
 static const Double_t refAdcPulseTimeCutLow  = 300.0;  // Units of ns
 static const Double_t refAdcPulseTimeCutHigh = 370.0;  // Units of ns
-static const Double_t adcTdcTimeDiffCutLow   = -0.0; // Units of ns
+static const Double_t adcTdcTimeDiffCutLow   = 10.0; // Units of ns
 static const Double_t adcTdcTimeDiffCutHigh  = 60.0;  // Units of ns
-static const Double_t calEtotnormCutVal      = 0.1;    // Units of Normalized energy
-static const Double_t cerNpeSumCutVal        = 0.1;    // Units of NPE in aerogel
+static const Double_t calEtotnormCutVal      = 0.7;    // Units of calorimeter track energy
+static const Double_t cerNpeSumCutVal        = 0.5;    // Units of NPE in noble gas
 // static const Double_t adcTdcTimeDiffCutLow   = -6000.0;  // Units of ns
 // static const Double_t adcTdcTimeDiffCutHigh  = 1000.0;  // Units of ns
 
@@ -233,8 +233,15 @@ void timeWalkHistos(TString inputname, Int_t runNum, string SPEC_flg) {  //SPEC_
   rawDataTree->SetBranchAddress(Form("T.%s.pT1_tdcTimeRaw", SPEC_flg.c_str()), &refT1TdcTimeRaw);
   rawDataTree->SetBranchAddress(Form("T.%s.pT2_tdcTimeRaw", SPEC_flg.c_str()), &refT2TdcTimeRaw);
   rawDataTree->SetBranchAddress(Form("T.%s.pT3_tdcTimeRaw", SPEC_flg.c_str()), &refT3TdcTimeRaw);
-  rawDataTree->SetBranchAddress("P.cal.etotnorm", &calEtotnorm);
-  rawDataTree->SetBranchAddress("P.aero.npeSum", &cerNpeSum);
+
+  //c.y. changed etotnorm to etracknorm which is much better distribution (narrower)
+  rawDataTree->SetBranchAddress("P.cal.etracknorm", &calEtotnorm);
+
+  // aerogel is for proton /K+ particle identification (not for electron ID) --> https://arxiv.org/pdf/1607.05264.pdf
+  // hgcer (heavy gas cherenkov filled with C4-F8-O) is for pion/Kaon ID
+  // ngcer (noble gas cherenkov) is for e- / pion identification
+  // for electorn PID, use the noble gas cherenkov
+  rawDataTree->SetBranchAddress("P.ngcer.npeSum", &cerNpeSum);
 
   rawDataTree->SetBranchAddress("P.hod.1x.nhits", &phod_1xnhits);
   rawDataTree->SetBranchAddress("P.hod.1y.nhits", &phod_1ynhits);
@@ -307,7 +314,7 @@ void timeWalkHistos(TString inputname, Int_t runNum, string SPEC_flg) {  //SPEC_
   
     // Loop over the events and fill histograms
   nentries = rawDataTree->GetEntries();
-  //nentries = ;
+  //nentries = 100000;
   cout << "\n******************************************"    << endl;
   cout << nentries << " Events Will Be Processed"           << endl;
   cout << "******************************************\n"    << endl;
@@ -451,7 +458,7 @@ void timeWalkHistos(TString inputname, Int_t runNum, string SPEC_flg) {  //SPEC_
       } // Side loop
     } // Plane loop
 
-    if (ievent % 100000 == 0 && ievent != 0)
+    if (ievent % 1000 == 0 && ievent != 0)
       cout << ievent << " Events Have Been Processed..." << endl;
 
   } // rawDataTree event loop

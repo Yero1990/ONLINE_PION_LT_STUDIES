@@ -304,7 +304,7 @@ void writePlots()
 void WriteFitParam(int runNUM)
 {
 
-  TString outPar_Name = Form("../../PARAM/SHMS/HODO/phodo_TWcalib_%d.param", runNUM);
+  TString outPar_Name = Form("./phodo_TWcalib_%d.param", runNUM);
   outParam.open(outPar_Name);
   outParam << Form(";SHMS Hodoscopes Time Walk Output Parameter File: Run %d", runNUM) << endl;
   outParam << " " << endl;
@@ -472,8 +472,8 @@ void WriteFitParamErr(int runNUM)
 void timeWalkCalib(int run) {
 
   //prevent root from displaying graphs while executing
-  gROOT->SetBatch(1);
- 
+  //gROOT->SetBatch(1);
+  
  // ROOT settings
   gStyle->SetTitleFontSize(fontSize);
   gStyle->SetLabelSize(fontSize, "XY");
@@ -551,7 +551,7 @@ void timeWalkCalib(int run) {
   //Write to a param file
   WriteFitParam(run);
   //Write parrameters with errors out to seperate file
-  WriteFitParamErr(run);
+  //WriteFitParamErr(run);
   
   return;
 } // timeWalkCalib()
