@@ -39,14 +39,14 @@ static const Int_t pmaxPMT[hod_PLANES] = {13, 13, 14, 21};
 //NOTE: These Values must be entered with a "minus(-)" sign in the para file
 
 //(See /PARAM/HMS/GEN/h_reftime_cut.param, units in Channel)
-static const Double_t hhod_trefcut = 1500.;      //hodo tdc ref cut
-static const Double_t hdc_trefcut  = 10000.;      //dc tdc ref cut
-static const Double_t hadc_trefcut = 1700.;      //hodo/cer/cal adc ref cut
+static const Double_t hhod_trefcut = 2400.;      //hodo tdc ref cut
+static const Double_t hdc_trefcut  = 14500.;      //dc tdc ref cut
+static const Double_t hadc_trefcut = 3200.;      //hodo/cer/cal adc ref cut
 
 //(See /PARAM/SHMS/GEN/p_reftime_cut.param, units in Channel)
-static const Double_t phod_trefcut = 2000.;            //**NOTE: Use this to set t_coin_trig_tdcrefcut in tcoin.param
-static const Double_t pdc_trefcut  = 10000.;
-static const Double_t padc_trefcut = 2000.;            //**NOTE: Use this to set t_coin_trig_tdcrefcut in tcoin.param
+static const Double_t phod_trefcut = 3700.;            //**NOTE: Use this to set t_coin_trig_tdcrefcut in tcoin.param
+static const Double_t pdc_trefcut  = 14000.;
+static const Double_t padc_trefcut = 4500.;            //**NOTE: Use this to set t_coin_trig_tdcrefcut in tcoin.param
 
 //=======================================================
 
@@ -82,7 +82,7 @@ Double_t hCer_tWinMax[2] = {170., 170.};
 //------ HMS DRIFT CHAMBERS --------
 //----------------------------------
 // Deuteron H(e,e'p) Elastics
-Double_t hDC_tWinMin[dc_PLANES] = {-14.e3, -14.e3,  -14.e3, -14.e3,  -14.e3,  -14.e3,  -14.e3,   -14.e3,  -14.e3, -14.e3,  -14.e3, -14.e3  };
+Double_t hDC_tWinMin[dc_PLANES] = {-15.e3, -15.e3,  -15.e3, -15.e3,  -15.e3,  -15.e3,  -15.e3,   -15.e3,  -15.e3, -15.e3,  -15.e3, -15.e3  };
 Double_t hDC_tWinMax[dc_PLANES] = { -10.e3,  -10.e3,   -10.e3,  -10.e3,   -10.e3,   -10.e3,   -10.e3,    -10.e3,   -10.e3,  -10.e3,   -10.e3,  -10.e3 };
 
 

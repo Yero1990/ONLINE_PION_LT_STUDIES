@@ -23,7 +23,7 @@ void overlay_histos(TString hist_name=""){
 
   TCanvas *c1 = new TCanvas();
 
-  /*
+  
   Float_t y_min = 0.001;
   Float_t y_max = 1.e6; 
 
@@ -32,42 +32,40 @@ void overlay_histos(TString hist_name=""){
 
   
   if(hist_name=="hT1_ref_CUT"){
-    ref_cut = 1500.;
+    //ref_cut = 1500.;
     new_ref_cut = 2400.;
   }
 
   else if(hist_name=="hDC1_refTime_CUT"|| hist_name=="hDC2_refTime_CUT"|| hist_name=="hDC3_refTime_CUT"|| hist_name=="hDC4_refTime_CUT"){
-    ref_cut = 10000.;
+    //ref_cut = 10000.;
     new_ref_cut = 14500.;
   }
   
   else if(hist_name=="hFADC_ref_CUT"){
-    ref_cut = 2000.;
+    //ref_cut = 2000.;
     new_ref_cut = 3200.;
 
   }
   
   else if(hist_name=="pT1_ref_CUT" || hist_name=="pT2_ref_CUT"){
-    ref_cut = 2000.;
+    //ref_cut = 2000.;
     new_ref_cut = 3700.;
   }
 
   else if(hist_name=="pDC1_refTime_CUT"||hist_name=="pDC2_refTime_CUT"||hist_name=="pDC3_refTime_CUT"||hist_name=="pDC4_refTime_CUT"||hist_name=="pDC5_refTime_CUT"||hist_name=="pDC6_refTime_CUT"||hist_name=="pDC7_refTime_CUT"||hist_name=="pDC8_refTime_CUT"||hist_name=="pDC9_refTime_CUT"||hist_name=="pDC10_refTime_CUT"){
-    ref_cut = 10000.;
+    //ref_cut = 10000.;
     new_ref_cut = 14000.;
 
   }
   
   else if(hist_name=="pFADC_ref_CUT"){
-    ref_cut = 2000.;
+    //ref_cut = 2000.;
     new_ref_cut = 4500.;
 	
   }
 
 
-  cout << ref_cut << endl;
-  
-  */
+  //cout << ref_cut << endl;
 
   
   c1->SetLogy();
@@ -82,9 +80,7 @@ void overlay_histos(TString hist_name=""){
   h1->SetFillStyle(3004);
   h1->SetFillColorAlpha(kBlack, 0.4);
   h1->GetYaxis()->SetRangeUser(0.001, 1e6);
- 
-
-  
+   
   TFile *f2 = new TFile(s2.Data(), "READ");
   TH1F *h2 = (TH1F*)f2->Get(hist_name.Data());
   // Run 11829 (Heep Kin A)
@@ -117,7 +113,7 @@ void overlay_histos(TString hist_name=""){
   h5->SetFillStyle(3004);
   h5->SetFillColorAlpha(kRed, 0.4);
   
-  /*
+  
   TLine l(ref_cut, y_min, ref_cut, y_max);
   l.SetLineStyle(9);
   l.SetLineWidth(2);
@@ -128,7 +124,7 @@ void overlay_histos(TString hist_name=""){
   l2.SetLineStyle(9);
   l2.SetLineWidth(2);
   l2.Draw("same");
-  */
+  
   
   TString fout_name = "./plots/" + hist_name +".pdf";
 
@@ -138,11 +134,17 @@ void overlay_histos(TString hist_name=""){
 
 void make_plot(){
 
+  //Plot ref times for various runs
+  make_histos("hT1_ref_CUT");
+
+
   //hist_names = "hT1_ref_CUT", "hDC1_refTime_CUT", "hFADC_ref_CUT", "pT1_ref_CUT"   "pT2_ref_CUT", "pDC1_refTime_CUT", "pFADC_ref_CUT"
 
-  //Plot specific detector time windows (overlayed for each PION LT kin)
 
+
+  //Plot specific detector time windows (overlayed for each PION LT kin)
   
+  /*
   //---HMS----
 
   //HMS Cherenkov
@@ -250,6 +252,7 @@ void make_plot(){
   make_histos("pSh_pmt152_CUT");  
   make_histos("pSh_pmt160_CUT");
 
+  */
   
   
 }

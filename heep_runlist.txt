@@ -1,0 +1,19 @@
+H(e,e'p) Singles Run List
+
+
+Ranges
+12079 - 12081  (KIN -I)
+12082 - 12085  (KIN -II)
+12086 - 12088  (KIN - III)
+12089 - 12091  (KIN - IV)
+12092 - 12093  (KIN - V)
+12094 - 12097  (KIN - VI)
+12098 - >>     (KIN - VII)
+
+Selected runs
+12080
+12084
+12086
+12090
+12092
+12094

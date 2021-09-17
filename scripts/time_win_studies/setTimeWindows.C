@@ -50,7 +50,7 @@ void setTimeWindows(int run, TString daq_mode="coin", Bool_t set_refTimes=true, 
   //TString filename = Form("../ROOTfiles/open_ref_times/Pion_coin_replay_timeWin_check_cyero_%d_100000.root", run);
   
   // These ROOTfiles have ther reference times applied
-  TString filename = Form("./ROOTfiles/Pion_coin_replay_timeWin_check_cyero_%d_-1.root", run);
+  TString filename = Form("./ROOTfiles/Pion_coin_replay_timeWin_check_cyero_%d_50000.root", run);
 
   //read ROOTfile and Get TTree
   TFile *data_file = new TFile(filename, "READ"); 
@@ -69,6 +69,10 @@ void setTimeWindows(int run, TString daq_mode="coin", Bool_t set_refTimes=true, 
     //====Create Directories to Save Plots====
     //========================================
     mkdir(Form("Time_cuts_test%d", run), S_IRWXU);
+    
+    mkdir(Form("Time_cuts_test%d/HMS", run), S_IRWXU);
+    mkdir(Form("Time_cuts_test%d/SHMS", run), S_IRWXU); 
+
     mkdir(Form("Time_cuts_test%d/HMS/refTime", run), S_IRWXU);
     mkdir(Form("Time_cuts_test%d/SHMS/refTime", run), S_IRWXU);
 
