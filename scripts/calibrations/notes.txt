@@ -1,0 +1,3 @@
+run 12080 had problems ending --> https://logbooks.jlab.org/entry/3906456
+
+Can this be the caus eof why the SHMS hodo calibration looks off ??
