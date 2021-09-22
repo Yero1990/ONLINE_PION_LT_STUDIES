@@ -1,3 +1,58 @@
-run 12080 had problems ending --> https://logbooks.jlab.org/entry/3906456
+SHMS DC calibrations look OFF in run 12288 --> https://logbooks.jlab.org/entry/3909865
 
-Can this be the caus eof why the SHMS hodo calibration looks off ??
+Since when do the SHMS calibrations look OFF?
+
+The HMS remain stable. The only change i could think of is the SHMS polarity from negative (during heep singles)
+to positive (for production).
+
+------------------------------
+The relevant runs to study the bad SHMS DC calibrations found by Nathan
+
+** These replayed runs have been using the DC calibration parameters from de-focused run 11799, calibrated with e- in both arms
+------------------------------
+
+Run 12199 (SHMS neg polarity, HMS neg polarity) --> https://logbooks.jlab.org/entry/3908062     (shms dc times look OK)
+
+-----> POLARITY CHANGE
+
+Run 12200 (SHMS pos polarity, HMS neg polarity) --> https://logbooks.jlab.org/entry/3908094     (shms dc times look OK)
+
+Run 12224 (SHMS pos polarity, HMS neg polarity, optics run) --> https://logbooks.jlab.org/entry/3908449    (shms dc time look OK, though a bit weird fall time)
+
+Run 12233 (SHMS pos polarity, HMS neg polarity, fADC deadtime studies) ---> https://logbooks.jlab.org/entry/3908509 (shms dc look OK)
+
+Run 12240 (SHMS pos polarity, HMS neg polarity, fADC deadtime studies) --> https://logbooks.jlab.org/entry/3908566 (shms dc look OK)
+
+Run 12250 (SHMS pos polarity, HMS neg polarity, fADC deadtime studies) --> https://logbooks.jlab.org/entry/3908673 (shms dc look OK)
+
+Run 12258 (SHMS pos polarity, HMS neg polarity, fADC deadtime studies) --> https://logbooks.jlab.org/entry/3908804 (shms dc look OK)
+
+changed LH2 --> Al.dummy
+
+Run 12259 (SHMS pos polarity, HMS neg polarity, fADC deadtime studies) --> https://logbooks.jlab.org/entry/3908826 (shms dc look OK)
+
+changed Al. dummy ---> LH2 
+
+=============================
+Started New Kinemstics @ LH2: shms_theta = 15.43 deg, shms_p = 2.8 GeV/c, hms_theta = 16.7 deg, hms_p = -1.026
+=============================
+
+Run 12260 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908848 (shms dc time look OK, though a bit weird fall time)
+
+
+Run 12261 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908878 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12262 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908881 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12263 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908911 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12264 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908917 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12265 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908921 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12269 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3908960 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12275 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3909173 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+
+Run 12280 (SHMS pos polarity, HMS neg polarity, kinematics same as problematic run 12288) --> https://logbooks.jlab.org/entry/3909579 (EXTREMELY WEIRD SHMS DRIFT TIMES !  !  !)
+

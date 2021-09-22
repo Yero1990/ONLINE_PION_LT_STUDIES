@@ -36,7 +36,7 @@ void checkCalib(string spec, int run)
   hcalEtrkNorm_xmax = 2.0,   		     pcalEtrkNorm_xmax = 2.0;   
 			     		   			     
   hcalEtot_nbins = 100,      		     pcalEtot_nbins = 100;      
-  hcalEtot_xmin = 0.001,     		     pcalEtot_xmin = 0.001;     
+  hcalEtot_xmin = -0.2,     		     pcalEtot_xmin = -0.2;     
   hcalEtot_xmax = 3.0,	     		     pcalEtot_xmax = 3.0;	     
 			     		   			     
   hcalXtrk_nbins = 100,      		     pcalXtrk_nbins = 100;      
@@ -47,9 +47,9 @@ void checkCalib(string spec, int run)
   hcalYtrk_xmin = -50, 	     		     pcalYtrk_xmin = -50; 	     
   hcalYtrk_xmax = 50, 	     		     pcalYtrk_xmax = 50; 	     
   			     		     			     
-  hdcTime_nbins = 200,	     		     pdcTime_nbins = 200;	     
-  hdcTime_xmin = -50.,	     		     pdcTime_xmin = -50.;	     
-  hdcTime_xmax = 350.,	     		     pdcTime_xmax = 350.;	     
+  hdcTime_nbins = 100,	     		     pdcTime_nbins = 100;	     
+  hdcTime_xmin = -200.,	     		     pdcTime_xmin = -200.;	     
+  hdcTime_xmax = 400.,	     		     pdcTime_xmax = 400.;	     
   			     		     			     
   hdcRes_nbins = 80.,	     		     pdcRes_nbins = 80.;	     
   hdcRes_xmin = -0.13,	     		     pdcRes_xmin = -0.13;	     
@@ -393,7 +393,9 @@ void checkCalib(string spec, int run)
 	
 
 	      //if(hnhit&&hcer_npesum>0.5){
-	      if(hdc_nhit[npl]==1&&hcer_npesum>0.5&&hcal_etot>0.1){
+	      if(hnhit && hcer_npesum>0.5 && hcal_etot>0.02){
+		//if(1==1){
+
 	      //Fill Histograms
 	      H_hdcTime[npl]->Fill(hdc_time[npl][j]);
 	      H_hdcDist[npl]->Fill(hdc_dist[npl][j]);
@@ -448,7 +450,9 @@ void checkCalib(string spec, int run)
 	    {
 	      
 	      //if(pnhit){
-	      if(pdc_nhit[npl]==1 && pngcer_npesum && pcal_etot>0.1){
+	      if(pnhit && pcal_etot>0.02){
+		//if(1==1){
+
 		//Fill Histograms
 		H_pdcTime[npl]->Fill(pdc_time[npl][j]);
 		H_pdcDist[npl]->Fill(pdc_dist[npl][j]);
@@ -953,13 +957,33 @@ void checkCalib(string spec, int run)
 
 void run_checkCalib(){
 
-  checkCalib("all", 12079);
-  //checkCalib("all", 12080);
-  //checkCalib("all", 12084);
-  //checkCalib("all", 12086);
-  //checkCalib("all", 12090);
-  //checkCalib("all", 12092);
-  //checkCalib("all", 12094);
+  checkCalib("all", 12288);
+
+  /*
+  checkCalib("all", 12199);
+  checkCalib("all", 12200);
+  
+  checkCalib("all", 12224);
+  checkCalib("all", 12233);
+  checkCalib("all", 12240);
+  checkCalib("all", 12250);
+  
+  checkCalib("all", 12258);
+  checkCalib("all", 12259);
+  checkCalib("all", 12260);
+  checkCalib("all", 12261);
+  
+  checkCalib("all", 12262);
+  checkCalib("all", 12263);
+  checkCalib("all", 12264);
+  checkCalib("all", 12265);
+  checkCalib("all", 12269);
+  checkCalib("all", 12275);
+  
+  checkCalib("all", 12280);
+  checkCalib("all", 12288);
+  */
+  
 
 }
 
