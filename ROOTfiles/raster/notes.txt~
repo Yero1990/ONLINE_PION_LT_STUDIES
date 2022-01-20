@@ -1,0 +1,65 @@
+====================
+Pion LT 2021 Raster
+====================
+
+On 09/20/2021, there was an issue with raster coil magnets --> https://logbooks.jlab.org/entry/3909088
+which resulted in Fast Raster "A" Magnet Coils (X,Y) being turned OFF, and doubling the current through
+"B" Magnet Coils (X,Y)
+
+The relevant to the Fast Raster Raw ADC signal parameters need to be updated for this new raster configuration.
+The calibration parameters for the Fast Raster, located in PARAM/GEN/gbeam.param
+
+Following the changes in the fast raster hardware,
+the The Carbon-Hole Run 12272 ---> https://logbooks.jlab.org/entry/3909107
+
+The relevant ROOTvariables for setting the Fast Raster parameters are:
+--------------------------
+H(P).rb.raster.frxbRawAdc
+H(P).rb.raster.frybRawAdc
+--------------------------
+
+These are raw ADC histograms (ADC signal comed from the X,Y coils), in units of Channels.
+The ADC-per-centimeter and offset parameters are determined from the edge values of the abovementioned histograms.
+
+----------
+ANALYSIS
+----------
+
+The raw min/max ADC Channels from the histograms are:
+
+FR-XB:
+-------
+min_frXB_RawAdc = 31,448 Channels
+max_frXB_RawAdc = 77,552 Channels
+
+FR-YB:
+------
+min_frYB_RawAdc = 32,631 Channels
+max_frYB_RawAdc = 77,132 Channels
+
+
+"adcpercm" and "_offset" parameters in gbeam.param are determined as follows:
+
+-----------------------------------
+gfrxb_adcpercm = (max_frXB_RawAdc - min_frXB_RawAdc) / raster_size (cm)
+gfryb_adcpercm = -(max_frYB_RawAdc - min_frYB_RawAdc) / raster_size (cm)  (NOTE: the "-" sign necessary for proper HCANA interpretation)
+
+
+gfrxb_adc_zero_offset = (max_frXB_RawAdc + min_frXB_RawAdc) / 2.  (NOTE: this is an average and "2" in the denominator is NOT the raster size)
+gfryb_adc_zero_offset = (max_frYB_RawAdc + min_frYB_RawAdc) / 2.
+-----------------------------------
+
+Inserting the numerical values into the formulas above, for a raster size of (0.4 x 0.4 cm):
+
+gfrxb_adcpercm = ( 77552 - 31448 ) / 0.4  = 115260.0
+gfryb_adcpercm = -( 77132 - 32631 ) / 0.4 = -111252.5
+
+gfrxb_adc_zero_offset = ( 77552 + 31448 ) / 2. = 54500.000
+gfryb_adc_zero_offset = ( 77132 + 32631 ) / 2. = 54881.500
+
+
+--------
+RESULTS
+--------
+The results of the Carbon Hole Check are shown below, for the "Before" (left) and After (right) updating the gbeam.param
+with the relevant parameters determined above, for run 12272.

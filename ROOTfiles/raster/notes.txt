@@ -1,0 +1,76 @@
+-----------
+MOTIVATION
+-----------
+
+On 09/20/2021, there was an issue with one of the Hall C Fast Raster Coil Magnets --> https://logbooks.jlab.org/entry/3909088
+which resulted in Fast Raster "A" (FR-A) Magnet Coils (X,Y) being turned OFF, and doubling the current through
+Fast Raster "B" (FR-B) Magnet Coils (X,Y), in order to maintain the 2x2 mm raster size.
+
+The relevant Fast Raster Raw ADC signal parameters need to be updated for this new raster configuration.
+The calibration parameters for the Fast Raster are located in hallc_replay/PARAM/GEN/gbeam.param 
+
+Following the changes in the fast raster hardware, the Carbon-Hole run 12272 ---> https://logbooks.jlab.org/entry/3909107
+was used to determine the new paramters FR-B raster parameters
+
+----------
+ANALYSIS
+----------
+
+The relevant ROOT Leaf variables for setting the FR-B parameters are:
+--------------------------
+H(P).rb.raster.frxbRawAdc
+H(P).rb.raster.frybRawAdc
+--------------------------
+
+These are raw ADC histograms, where the ADC signal comes from the X,Y coils, in units of channels.
+The ADC-per-centimeter and offset parameters are determined from the edge values of the abovementioned histograms.
+See the histograms below.
+
+The edges (raw min/max ADC Channels) from the FR-B histograms of run 12271 are (also see 1D histograms below):
+
+FR-XB:
+-------
+min_frXB_RawAdc = 31,448 Channels
+max_frXB_RawAdc = 77,552 Channels
+
+FR-YB:
+------
+min_frYB_RawAdc = 32,631 Channels
+max_frYB_RawAdc = 77,132 Channels
+
+
+
+The "adcpercm" and "_offset" parameters in gbeam.param are determined as follows:
+-----------------------------------------------------------------------------------
+
+gfrxb_adcpercm = (max_frXB_RawAdc - min_frXB_RawAdc) / raster_size (cm)
+gfryb_adcpercm = -(max_frYB_RawAdc - min_frYB_RawAdc) / raster_size (cm)  (NOTE: the "-" sign necessary for proper HCANA interpretation)
+
+
+gfrxb_adc_zero_offset = (max_frXB_RawAdc + min_frXB_RawAdc) / 2.  (NOTE: this is an average and "2" in the denominator is NOT the raster size)
+gfryb_adc_zero_offset = (max_frYB_RawAdc + min_frYB_RawAdc) / 2.
+
+
+Inserting the numerical values into the formulas above, for a raster size of (0.2 x 0.2 cm):
+
+gfrxb_adcpercm = ( 77552 - 31448 ) / 0.2  = 115260.0
+gfryb_adcpercm = -( 77132 - 32631 ) / 0.2 = -111252.5
+
+gfrxb_adc_zero_offset = ( 77552 + 31448 ) / 2. = 54500.000
+gfryb_adc_zero_offset = ( 77132 + 32631 ) / 2. = 54881.500
+
+
+------------
+ATTACHMENTS
+-----------
+Attached is the update gbeam.txt file (must change .txt to .param), which should be updated in the ONLINE PION-LT ANALYSIS on CDAQ.
+
+--------
+RESULTS
+--------
+The raw ADC FR-XB and FR-YB 1D histograms are shown below, indicating the edges (estimated by "eye") used to determine the FR-B parameters.
+The results of the Carbon Hole Check are also shown below, "Before" and "After" updating the gbeam.param
+
+After updating the gbeam.param, the ONLINE 50k replays should show the correct raster range ~( -0.1 to 0.1 cm for both the X and Y axes) for FR-B
+Since FR-A magnets are OFF, do not expect to see anything (maybe only a "dot-like" structure) in the plots
+
